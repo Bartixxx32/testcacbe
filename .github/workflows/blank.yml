@@ -28,7 +28,26 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+      
+      - name: Cache
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: **/.ccache
+        key: ${{ runner.os }}-ccache-${{ github.run_number }}
+        restore-keys: ${{ runner.os }}-ccache
 
+.     - name: Glob match
+        uses: tj-actions/glob@v15
+        id: glob
+        with:
+          files: |
+            **/.ccache
+
+      - name: Show all matching files
+        run: |
+          echo "${{ steps.glob.outputs.paths }}"
+         
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
