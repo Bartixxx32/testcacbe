@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       
 
-.     - name: Glob match
+      - name: Glob match
         uses: tj-actions/glob@v15
         id: glob
         with:
