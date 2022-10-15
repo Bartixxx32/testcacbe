@@ -28,6 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Test
         run: mkdir /home/runner/.ccache
+      - name: Test2  
         run: echo dupa >> /home/runner/.ccache/test.txt
       - name: Cache
         id: cache
